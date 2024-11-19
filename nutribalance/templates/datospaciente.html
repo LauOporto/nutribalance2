@@ -1,0 +1,33 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Detalles</title>
+    <link rel="stylesheet" href="{% static 'css/datospaciente.css' %}">
+    <link rel="icon" href="{% static 'img/logopestaña.png' %}"> 
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Barlow+Semi+Condensed:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
+    <title>Ingrese sus datos | Nutribalance </title>
+</head>
+<body>
+
+    <div class="comida">
+            <img src="/static/img/AdobeStock_737349921.png" alt="Imagen de fondo">
+        </div>
+
+    <div class="Formulario">
+        <h1>Perfecto {{ nombre }}!</h1>
+        <h2>Ahora completa estos datos para finalizar:</h2>
+        <form method="post">
+            {% csrf_token %}
+            {{ form.as_p }}  <!-- Renderiza el formulario de Django -->
+            <input type="submit" value="Crear Cuenta">
+        </form>
+    </div>
+
+</body>
+</html>

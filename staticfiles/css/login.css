@@ -1,0 +1,108 @@
+@font-face { font-family: 'Fuente1'; src: url(../Fuentes/fuente1.ttf); }
+
+@font-face { font-family: 'Fuente2'; src: url(../Fuentes/fuente2.ttf); }
+
+body, h1, h2, h3, h4, h5, h6, p, label, input, button, span, ul, li { font-family: 'Barlow Semi Condensed',!important; }
+
+a { text-decoration: none; color: #904443; }
+
+a:visited {
+color:#30380d;
+text-decoration: none;
+}
+
+.logo { text-align: center; margin-top: 20px; /* Puedes ajustar el margen según sea necesario */ }
+
+.logo img { max-width: 150px; /* Mantener el tamaño máximo de la imagen */ }
+
+.comida { position: absolute; top: 0; right: 0; width: 100%; height: 100%; background: url('/static/img/comida.png') no-repeat center center; background-size: cover; opacity: 0.5 !important; z-index: -1; /* Mantener la imagen de fondo detrás del contenido */
+
+}
+
+/* General page styling */ body { font-family: 'fuente1', sans-serif; font-weight: 700px; background-color: #f5f5f5; display: flex; align-items: center; justify-content: center; height: 100vh; margin: 0; overflow: hidden; }
+
+/* Logo positioning */ .logo { text-align: center; margin-top: 20px; }
+
+.logo img { max-width: 150px; }
+
+/* Background image styling */ .comida { position: absolute; top: 0; right: 0; width: 100%; height: 100%; background: url('/static/img/comida2.png') no-repeat center center; background-size: cover; opacity: 0.2; z-index: -1; }
+.Formulario { background-color: rgba(255, 255, 255, 0.2); 
+    backdrop-filter: blur(10px); 
+    padding: 20px; 
+    border-radius: 8px; 
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); 
+    width: 30%; 
+    text-align: center; 
+    margin-top: 20px; 
+    height: 55%;
+}
+    
+.Formulario h1 {
+    color: #91ac47;
+    font-weight: 700;
+    margin-bottom: 20px;
+    font-family: 'fuente1', sans-serif;
+}
+
+.Formulario form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.Formulario label {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+    font-family: 'fuente1', sans-serif;
+}
+
+.Formulario input[type="text"],
+.Formulario input[type="email"],
+.Formulario input[type="password"]
+ {
+    background-color: #91ac47;
+    padding: 10px;
+    margin-top: 5px;
+    margin-bottom: 10px;
+    border: none;
+    border-radius: 50px;
+    width: 80%; /* Ajusta el porcentaje para hacer el input más ancho */
+    max-width: 100%; /* Aumenta este valor para un ancho máximo mayor */
+    font-family: 'fuente1', sans-serif; 
+}
+
+.Formulario button {
+    padding: 10px;
+    background-color: #91ac47;
+    color: #30380d;
+    border: none;
+ border-radius: 20px;
+    cursor: pointer;
+    font-size: 17px;
+    width: 100%;
+    max-width: 300px;
+    margin-top: 20px;
+    transition: background-color 0.3s, transform 0.2s ease-in-out;
+    font-family: 'fuente1', sans-serif;
+}
+
+.Formulario button:hover {
+    background-color: #ffffff;
+    color: #91ac47;
+    border: solid 2px #91ac47;
+    transform: scale(1.05);
+}
+
+/* Mensajes de error */
+.Formulario p {
+    color: rgb(0, 0, 0);
+    font-size: 14px;
+    margin-top: 10px;
+}
+
+button.eye-button {
+    width: 10%;
+    border-radius: 200%;
+}

@@ -1,0 +1,110 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{% static 'css/registro.css' %}">
+    <link rel="icon" href="{% static 'img/logopestaña.png' %}"> 
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Barlow+Semi+Condensed:wght@100;200;300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+    
+    <title>Tus registros | Nutribalance</title>
+</head>
+<body>
+
+    {% include "layouts/partials/nav.html" %}
+
+    <div class="container">
+        <!-- REGISTRO COMIDA -->
+        <div class="registrocomida_container">
+            <h1 class="registrocomida_title">Registro de comida</h1>
+
+            <form class="registroform" action="{% url 'guardar_comida' %}" method="POST" enctype="multipart/form-data">
+    {% csrf_token %}
+    <label for="comidaImagen" class="registrocomida_emoji_text">Sube una foto de tu comida:</label>
+    
+    <!-- Input file oculto -->
+    <input type="file" id="comidaImagen" name="imagen" accept="image/*" required style="display: none;">
+
+    <!-- Botón con imagen -->
+    <label for="comidaImagen" class="upload-button">
+        <img src="{% static 'img/uploadicon.png' %}" alt="Subir foto" style="width: 50px; cursor: pointer;">
+    </label>
+
+    <label class="registrocomida_emoji_text">¿Emociones a la hora de la ingesta?</label>
+    <div class="emoji-container">
+        <input type="radio" id="emoji1" name="emocion" value="1" required>
+        <label for="emoji1">🤢</label>
+
+        <input type="radio" id="emoji2" name="emocion" value="2">
+        <label for="emoji2">😞</label>
+
+        <input type="radio" id="emoji3" name="emocion" value="3">
+        <label for="emoji3">😐</label>
+
+        <input type="radio" id="emoji4" name="emocion" value="4">
+        <label for="emoji4">😊</label>
+
+        <input type="radio" id="emoji5" name="emocion" value="5">
+        <label for="emoji5">😁</label>
+    </div>
+
+    <input class="registrocomida_form_button" type="submit" value="Enviar">
+</form>
+</form>
+
+
+<h1>Historial de Comidas</h1>
+<div class="historial-container">
+    {% for registro in registros %}
+        <div class="registro">
+            <img class="historial-img" src="{{ registro.imagen.url }}" alt="Imagen de comida" style="max-width: 150px; max-height: 150px; object-fit: cover; border-radius: 8px;">>
+            <p>Emoción: {{ registro.get_emocion_display }}</p>
+            <p>Fecha: {{ registro.fecha }}</p>
+        </div>
+    {% empty %}
+        <p>No tienes comidas registradas.</p>
+    {% endfor %}
+</div>
+        </div>
+
+        <!-- REGISTRO AGUA -->
+        <div class="registroagua_container">
+            <h1 class="registroagua_title">Registro de agua</h1>
+            <h2 class="para_pintar_en_verde_viste">Control de consumo de agua</h2>
+
+            <div class="contador_agua">
+                <p class="para_pintar_en_verde_viste" id="contador">0 ml</p>
+                <img class="vaso_agua_img" src="{% static 'img/vasoagua.png' %}">
+            </div>
+
+            <div class="buttons_agua_container">
+                <button class="button_agua" onclick="agregarVaso()">
+                    <img class="vaso_agua_img_mas" src="{% static 'img/vasoaguamas.png' %}">
+                </button>
+                <button class="button_agua" onclick="restarVaso()">
+                    <img class="vaso_agua_img_menos" src="{% static 'img/vasoaguamenos.png' %}">
+                </button>
+                <button class="normal_button1" onclick="reiniciarContador()">Reiniciar</button>
+            </div>
+
+            <div>
+                <h3 class="para_pintar_en_verde_viste">Establecer objetivo</h3>
+                <label class="para_pintar_en_verde_viste" for="inputObjetivo">Objetivo en litros:</label>
+                <input type="number" id="inputObjetivo" placeholder="Ingrese cantidad en litros">
+                <button class="normal_button1" onclick="establecerObjetivo()">Establecer</button>
+                <p class="para_pintar_en_verde_viste" id="objetivoDisplay">Objetivo: No establecido</p>
+            </div>
+            
+            <p class="para_pintar_en_verde_viste" id="progreso">Progreso: 0%</p>
+            <div style="width: 100%; text-align: center;">
+                <progress id="barraProgreso" value="0" max="100"></progress>
+            </div>
+        </div>
+    </div>
+
+    <script src="{% static 'js/registro.js' %}"></script>
+</body>
+</html>

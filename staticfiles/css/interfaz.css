@@ -1,0 +1,106 @@
+.seleccion_div {
+    display: flex;
+    justify-content: center; /* Centra el contenido horizontalmente */
+    align-items: center; /* Centra el contenido verticalmente */
+    height: 100vh; /* Ajusta la altura según sea necesario */
+    flex-direction: column; /* Asegura que los elementos estén en columna */
+}
+
+
+.imgfondo {
+    background-image: url('/static/img/fideos.png');
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 100%;
+    height: 100%;
+    background-size: cover;
+    z-index: -1; /* Mantener la imagen de fondo detrás del contenido */
+    
+
+}
+body {
+    
+    background-color: #c4dd71;
+    font-family: "Barlow Semi Condensed", sans-serif;
+    font-weight: 700;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+    overflow: hidden;
+}
+
+.caja-borrosa {
+    background-color: rgba(255, 255, 255, 0.8);
+    backdrop-filter: blur(5px);
+    padding: 40px;
+    border-radius: 12px;
+    width: 80%;
+    max-width: 600px;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
+    text-align: center;
+    height: 550px;
+}
+
+button {
+    padding: 30px;
+    font-size: 180%;
+    border: none;
+    background-color: rgba(255, 255, 255, 0.8);
+    font-family: "Barlow Semi Condensed", sans-serif;
+    font-weight: 700;
+    color: rgb(59, 104, 18);
+    transition: transform 0.5s ease;
+    border-radius: 8px;
+    margin: 15px;
+    position: relative;
+    top: -230px;
+}
+
+button:hover {
+    transform: scale(1.1); /* Aumenta el tamaño al 110% */
+    color: #984325;
+}
+
+h1 {
+    text-align: center;
+    padding: 20px;
+    color: rgb(59, 104, 18);
+    position: relative;
+    font-size: 250%;
+    top: -30px;
+}
+
+ul {
+    list-style-type: none;
+}
+
+a {
+    color: rgb(59, 104, 18); /* Color del enlace */
+    text-decoration: none; /* Quita el subrayado */
+    font-family: "Barlow Semi Condensed", sans-serif;
+    font-weight: 700;
+    transition: transform 0.5s ease; /* Animación suave */
+}
+
+a:hover {
+    transform: scale(1.5);
+    color: #984325;
+}
+
+a:visited {
+    color: inherit; /* Mantiene el mismo color tras visitarlo */
+    text-decoration: none; /* Asegura que no esté subrayado */
+}
+
+/* Estilo para el logo */
+.imglogo {
+    position: absolute;
+    width: 15%;
+    padding: 10px 0 0 50px;
+    right: 42%;
+    top: 21px;
+
+}

@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Custom Navbar</title>
+    <style>
+        /* Estilos generales */
+
+        /* Navbar contenedor */
+        .navbar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background-color: #fff;
+            padding: 1rem 2rem;
+            color: #7007a1;
+            border-bottom: solid 2px #719400;
+            margin: 0;
+        }
+
+        /* Logo */
+        .navbar-logo {
+            font-size: 1.5rem;
+            font-weight: bold;
+            color: #719400;
+            text-decoration: none;
+        }
+
+        /* Navegación de enlaces */
+        .navbar-links {
+            display: flex;
+            gap: 1.5rem;
+        }
+
+        .navbar-links a {
+            color: #719400;
+            text-decoration: none;
+            font-weight: 500;
+            transition: color 0.3s ease;
+        }
+
+        .navbar-links a:hover {
+            color: #719400; /* Color de hover */
+        }
+
+        /* Menú hamburguesa (para dispositivos móviles) */
+        .navbar-toggle {
+            display: none;
+            flex-direction: column;
+            cursor: pointer;
+        }
+
+        .navbar-toggle span {
+            height: 3px;
+            width: 25px;
+            color: #c4dd71;
+            margin: 4px 0;
+            transition: transform 0.3s ease;
+        }
+
+        /* Responsivo: Ocultar enlaces en pantallas pequeñas */
+        @media (max-width: 768px) {
+            .navbar-links {
+                display: none;
+                position: absolute;
+                top: 70px;
+                right: 0;
+                background-color: #333;
+                width: 100%;
+                flex-direction: column;
+                align-items: center;
+                padding: 1rem 0;
+            }
+
+            .navbar-links a {
+                padding: 1rem 0;
+                width: 100%;
+                text-align: center;
+                border-top: 1px solid #444;
+            }
+
+            .navbar-toggle {
+                display: flex;
+            }
+
+            /* Estilos cuando el menú está activo */
+            .navbar.active .navbar-links {
+                display: flex;
+            }
+
+            .navbar-toggle.active span:nth-child(1) {
+                transform: rotate(45deg) translate(5px, 5px);
+            }
+
+            .navbar-toggle.active span:nth-child(2) {
+                opacity: 0;
+            }
+
+            .navbar-toggle.active span:nth-child(3) {
+                transform: rotate(-45deg) translate(5px, -5px);
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <nav class="navbar">
+        <a href="#" class="navbar-logo">Nutribalance</a>
+        
+        <div class="navbar-links">
+        {% if not paciente.es_profesional %}
+            <a href="{% url 'home' %}">Home</a>
+            <a href="{% url 'consulta' %}">Consulta</a>
+            <a href="{% url 'registro' %}">Registro</a>
+            {% endif %}
+            <a href="{% url 'miperfil' %}">Perfil</a>
+            {% if paciente.es_profesional %}
+            <a href="{% url 'lista_pacientes' %}">Pacientes</a>
+            {% endif %}
+        </div>
+        
+        <!-- Menú hamburguesa para pantallas móviles -->
+        <div class="navbar-toggle" onclick="toggleMenu()">
+            <span></span>
+            <span></span>
+            <span></span>
+        </div>
+    </nav>
+
+    <script>
+        // Alterna el menú para pantallas móviles
+        function toggleMenu() {
+            const navbar = document.querySelector('.navbar');
+            const toggle = document.querySelector('.navbar-toggle');
+            navbar.classList.toggle('active');
+            toggle.classList.toggle('active');
+        }
+    </script>
+
+</body>
+</html>
+

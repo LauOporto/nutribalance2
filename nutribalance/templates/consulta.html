@@ -1,0 +1,67 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{% static 'css/consulta.css'%}">
+    <link rel="icon" href="{% static 'img/logopestaña.png' %}"> 
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Barlow+Semi+Condensed:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
+
+    <title>Formulario de Contacto | Nutribalance </title>
+</head>
+
+<body>
+
+    {% include 'layouts/partials/nav.html' %}
+
+<main>
+
+    <div class="form-container">
+        <h2>Formulario de Contacto</h2>
+        <hr>
+        <form action="{% url 'contact' %}" method="post" class="was-validated" novalidate>
+            {% csrf_token %}
+
+            <div class="mb-3">
+                <label for="name" class="form-label">Nombre y Apellido</label>
+                <input type="text" class="form-control" id="name" name="name" required>
+                <div class="valid-feedback"></div>
+                <div class="invalid-feedback">Introduzca su nombre y apellido</div>
+            </div>
+
+            <div class="mb-3">
+                <label for="email" class="form-label">Correo Electrónico</label>
+                <input type="email" class="form-control" id="email" name="email" required>
+                <div class="valid-feedback"></div>
+                <div class="invalid-feedback">Introduzca su Correo Electrónico válido</div>
+            </div>
+
+            <div class="mb-3">
+                <label for="subject" class="form-label">Asunto</label>
+                <input type="text" class="form-control" id="subject" name="subject" required>
+                <div class="valid-feedback"></div>
+                <div class="invalid-feedback">Introduzca el motivo de su mensaje</div>
+            </div>
+
+            <div class="mb-3">
+                <label for="message" class="form-label">Mensaje</label>
+                <textarea class="form-control" name="message" id="message" rows="10" required></textarea>
+                <div class="valid-feedback"></div>
+                <div class="invalid-feedback">Introduzca el mensaje</div>
+            </div>
+            <div class="boton-container">
+            <button class="boton" type="submit">Enviar Mensaje</button>
+            </div>
+        </form>
+    </div>
+</div>
+
+</main>
+
+</body>
+
+
+</html>

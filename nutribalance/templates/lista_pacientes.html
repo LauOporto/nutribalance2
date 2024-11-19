@@ -1,0 +1,51 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lista de Pacientes | Nutribalance</title>
+    <link rel="stylesheet" href="{% static 'css/lista_pacientes.css' %}">
+    <link rel="icon" href="{% static 'img/logopestaña.png' %}">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Barlow+Semi+Condensed:wght@300;400;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="background">
+        <img src="{% static 'img/nutrifoto.jpg' %}" alt="Fondo Nutribalance" class="background-image">
+    </div>
+
+    <div class="btn-volver-container">
+        <a class="btn-volver" href="{% url 'miperfil' %}">Volver</a>
+    </div>
+    <div class="container">
+        <h1>Lista de Pacientes</h1>
+        <table class="patient-table">
+            <thead>
+                <tr>
+                    <th>Nombre</th>
+                    <th>Apellido</th>
+                    <th>Email</th>
+                    <th>Acciones</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for paciente in pacientes %}
+                <tr>
+                    <td>{{ paciente.nombre }}</td>
+                    <td>{{ paciente.apellido }}</td>
+                    <td>{{ paciente.email }}</td>
+                    <td>
+                        <form action="{% url 'acceder_cuenta' paciente.id %}" method="post">
+                            {% csrf_token %}
+                            <button type="submit" class="action-button">Acceder como este usuario</button>
+                        </form>
+                    </td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
+</body>
+</html>

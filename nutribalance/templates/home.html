@@ -1,0 +1,54 @@
+<!-- Carga el manejo de archivos estáticos -->
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{% static 'css/interfaz.css' %}">
+    <link rel="icon" href="{% static 'img/logopestaña.png' %}"> 
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Barlow+Semi+Condensed:wght@100;200;300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <title>Home | Nutribalance</title>
+</head>
+    <div class="logo">
+        <img class="imglogo" src="{% static 'img/logonutri.png' %}">
+    </div>
+
+    <div class="fondo">
+        <img class="imgfondo">
+    </div>
+
+
+<body>
+
+
+    
+    <div class="caja-borrosa"> 
+
+        
+        <h1>¿Qué quieres hacer hoy?</h1>
+        <div class="seleccion_div">
+            <ul>
+                {% if not paciente.es_profesional %}
+                <li>
+                    <button><a href="{% url 'consulta' %}">Realizar una consulta</a></button>
+                </li>
+                <li>
+                    <button><a href="{% url 'registro' %}">Acceder a mis registros</a></button>
+                </li>
+                {% endif %}
+                <li>
+                    <button><a href="{% url 'miperfil' %}">Acceder a mi perfil</a></button>
+                </li>
+                {% if paciente.es_profesional %}
+                <li>
+                    <button><a href="{% url 'miperfil' %}">Acceder a la lista de pacientes</a></button>
+                </li>
+                {% endif %}
+            </ul>
+        </div>  
+    </div>
+</body>
+</html>

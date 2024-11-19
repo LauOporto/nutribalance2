@@ -1,0 +1,273 @@
+
+
+body, html {
+    margin: 0;
+    padding: 0;
+    font-family: "Barlow Semi Condensed", sans-serif;
+    font-weight: 700;
+   }
+   
+   .container {
+       display: flex;
+       flex-direction: row;
+       flex-wrap: wrap;
+       height: 100vh;
+   }
+     
+   /* REGISTRO COMIDA */
+   
+   .registrocomida_container {
+       background-color: #c4dd71;
+       display: flex;
+       flex-direction: column; /* Alinea los elementos verticalmente */
+       justify-content: center; /* Centra verticalmente */
+       align-items: center; /* Centra horizontalmente */
+       width: 50%;
+       height: auto;
+       
+   }
+   
+   .emoji-container {
+        background-color: #e9ffa0;
+        
+       display: flex;
+       justify-content: center;
+       margin: 20px; /* Espacio entre formulario y emojis */
+       border-radius: 50px;
+   }
+   
+   .emoji-container span {
+       font-size: 200%;
+       cursor: pointer;
+       transition: transform 0.2s ease-in-out;
+       margin: 0 10px; /* Espacio entre emojis */
+   }
+   
+   .emoji-container span:hover {
+       transform: scale(1.3);
+   }
+   
+   .emoji-container span.selected {
+       transform: scale(1.5);
+   }
+   
+   #emoji-selected {
+       font-size: 9%;
+       margin-top: 20%;
+       white-space: nowrap;
+   }
+   
+   .registrocomida_title {
+       text-align: center;
+       padding:7%;
+   
+   }
+   
+   .registrocomida_form_text, .registrocomida_form_button, .registrocomida_emoji_text {
+       display: block;
+       text-align: center; /* Centrar el texto */
+       margin-bottom: 10px; /* Espacio entre los elementos del formulario */
+       width: 100%;
+   }
+   
+   
+   .registrocomida_emoji_text {
+       margin-top: 10%;
+   }
+   
+   textarea {
+       resize: none
+   }
+   
+   .historial-container {
+    max-height: 400px; /* Ajusta la altura máxima según tus necesidades */
+    overflow-y: auto; /* Activa el scroll vertical */
+    border: 1px solid #000000; /* Opcional: Agrega un borde para delimitar la caja */
+    padding: 10px; /* Espaciado interno */
+    border-radius: 8px; /* Opcional: Bordes redondeados */
+    background-color: #d3e790; /* Opcional: Fondo para mayor claridad */
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Opcional: Añade un sombreado elegante */
+    margin-bottom: 70px;
+}
+
+.upload-button {
+    display: flex; /* Activar Flexbox */
+    justify-content: center; /* Centrar horizontalmente */
+    align-items: center; /* Centrar verticalmente */
+    margin: 0 auto; /* Centrar la imagen dentro del contenedor */
+    width: 100%; /* Asegurarte de que ocupe todo el ancho disponible */
+    text-align: center;
+}
+
+.upload-button img {
+    width: 60px; /* Ajustar tamaño de la imagen */
+    cursor: pointer; /* Cambiar el puntero */
+    transition: transform 0.2s ease; /* Animación opcional */
+}
+
+.upload-button img:hover {
+    transform: scale(1.1); /* Efecto al pasar el cursor */
+}
+
+.registrocomida_form_button {
+    padding: 15px;
+    max-width: 100px;
+    border-radius: 50px;
+    border: none;
+    cursor: pointer;
+    font-family: "Barlow Semi Condensed", sans-serif;
+    font-weight: 700;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+    margin-left: 70px;
+}
+
+.registrocomida_form_button:hover {
+    transform: scale(1.1);
+    background-color: #000000;
+    color: #ffffff;
+}
+
+
+
+
+
+
+   
+   /* REGISTRO AGUA */
+   
+   .registroagua_container {
+       background-color: #ffffff;
+       display: flex;
+       flex-direction: column; /* Alinea los elementos verticalmente */
+       justify-content: center; /* Centra verticalmente */
+       align-items: center; /* Centra horizontalmente */
+       width: 50%;
+       height: 650px;
+   }
+   
+   .registroagua_title {
+       text-align: center;
+       padding:7%;
+       color: #4a5f04
+       
+   }
+   
+   .vaso_agua_img_mas, .vaso_agua_img_menos {
+       width:30%;
+   }
+   
+   .button_agua {
+       width:20%;
+       border: black solid 1px;
+       background-color: none;
+       transition: background-color 0.3s ease, transform 0.3s ease;
+   }
+   
+   
+   .button_agua:hover {
+       background-color: #e1fc8b;
+       transform: scale(1.15);
+   }
+   
+   
+   
+   .buttons_agua_container {
+       display: flex; /* Alinea los elementos verticalmente */
+       justify-content: center; /* Centra verticalmente */
+       align-items: center;
+       gap: 2%;
+       margin: 3%;
+   
+   }
+   
+   .vaso_agua_img {
+       width:4%;
+   }
+   
+   .contador_agua {
+       display: flex; /* Alinea los elementos verticalmente */
+       justify-content: center; /* Centra verticalmente */
+       align-items: center;
+   
+   }
+   
+   #barraProgreso {
+       width: 70%; /* Ajusta el ancho al 70% del contenedor */
+       height: 35px; /* Altura de la barra de progreso */
+       margin: 10px auto; /* Centrar la barra y agregar margen */
+       display: block; /* Para asegurarse de que sea un bloque */
+   }
+   
+   #inputObjetivo {
+       width:40%;
+       height: 15%;
+       background-color: #c4dd71;
+       border: none;
+       border-radius: 25%;
+       font-family: "Barlow Semi Condensed", sans-serif;
+       font-weight: 700;
+   }
+   
+   .normal_button1 {
+       padding:10px;
+       background-color: #c4dd71;
+       border: none;
+       border-radius: 40%;
+       font-family: "Barlow Semi Condensed", sans-serif;
+       font-weight: 700;
+       transition: background-color 0.3s ease, transform 0.3s ease;
+   }
+   
+   .normal_button1:hover {
+       background-color: #4d6400;
+       color:white;
+       transform: scale(1.05);
+   }
+   
+   .para_pintar_en_verde_viste{
+       color: #4a5f04
+   }
+   
+   /* Estilo base de la barra de progreso */
+   progress {
+       width: 70%;
+       height: 20px;
+       appearance: none;
+   }
+   
+   /* Para navegadores Webkit (Chrome, Safari) */
+   progress::-webkit-progress-bar {
+       background-color: #eee; /* Fondo de la barra vacía */
+   }
+   
+   progress::-webkit-progress-value {
+       background-color: green; /* Color inicial del progreso */
+       transition: background-color 0.3s ease; /* Transición suave */
+   }
+   
+   /* Para navegadores Firefox */
+   progress::-moz-progress-bar {
+       background-color: green; /* Color inicial del progreso */
+       transition: background-color 0.3s ease; /* Transición suave */
+   }
+   
+   /* Diferentes colores según el progreso */
+   .low {
+       background-color: red; /* Menor al 30% */
+   }
+   
+   .medium {
+       background-color: orange; /* Entre 30% y 70% */
+   }
+   
+   .high {
+       background-color: green; /* Mayor al 70% */
+   }
+
+   .historial-container .registro img {
+    max-width: 150px; /* Ajusta este valor según el tamaño deseado */
+    max-height: 150px; /* Mantén una proporción adecuada */
+    object-fit: cover; /* Para recortar y mantener el aspecto proporcional */
+    border-radius: 8px; /* Opcional: para bordes redondeados */
+    margin: 10px; /* Espaciado entre las imágenes */
+}

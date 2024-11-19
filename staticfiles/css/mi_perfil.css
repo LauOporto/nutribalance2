@@ -1,0 +1,303 @@
+body {
+    font-family: "Barlow Semi Condensed", sans-serif;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.seccion-perfil-usuario {
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 2rem;
+}
+
+.perfil-usuario-header {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    background:#91ac47;
+    position: relative;
+    height: 200px; /* Ajustamos la altura */
+}
+
+.perfil-usuario-portada {
+    width: 100%;
+    height: 200px;
+    
+    border-radius: 0 0 20px 20px;
+}
+
+.perfil-usuario-avatar {
+    position: relative; /* Necesario para posicionar el icono */
+    width: 150px;
+    height: 150px;
+    align-items: center;
+    border: 7px solid white;
+    background-color: whitesmoke;
+    border-radius: 50%;
+    box-shadow: 0 0 12px rgba(0, 0, 0, 0.2);
+    position: absolute;
+    bottom: -75px; 
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+.editar-icono {
+    position: absolute;
+    bottom: 5px; /* Ajusta según tu diseño */
+    right: 5px; /* Ajusta según tu diseño */
+    background-color: #8fa547;
+    color: rgb(255, 255, 255);
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-decoration: none;
+    font-size: 18px;
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.2);
+    transition: background-color 0.3s ease;
+}
+
+.editar-icono:hover {
+    background-color: #ffffff;
+    color: #6b8b00;
+}
+
+ul {
+    list-style-type: none;
+}
+
+.imagen_avatar {
+    width: 100%;
+    border-radius: 50%;
+}
+
+.perfil-usuario-bio {
+    margin-top: 90px; 
+    text-align: center;
+}
+
+.perfil-usuario-footer {
+    display: flex;
+    justify-content: center;
+    padding: 1rem 2rem;
+    box-shadow: 0 0 12px rgba(0, 0, 0, 0.2);
+    background-color: #fff;
+    border-radius: 15px;
+    text-align: center;
+    width: 90%;
+    margin-top: 2rem;
+}
+
+.lista-datos {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    list-style: none;
+    padding: 0;
+    font-size: 1.2rem;
+    margin: 1rem 0;
+    width: 100%; 
+}
+
+.lista-datos li {
+    margin: 0.5rem 0;
+}
+
+.boton-redes {
+    margin: 0.5rem;
+    font-size: 1.5rem;
+    text-decoration: none;
+    color: #333;
+}
+
+.contenedor_titulo {
+    background-color: #c4dd71;
+    
+}
+
+.cerrar-sesion-contenedor {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    position: absolute;
+    bottom: 20%px¿;
+    
+}
+
+.btn-cerrar-sesion {
+    background-color: #ff4d4d;
+    color: white;
+    font-family: "Barlow Semi Condensed", sans-serif;
+    font-size: 1.2rem;
+    padding: 0.8rem 2rem;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    margin-top: auto; /* Se coloca en el final del contenedor */
+    margin: 20px;
+    transition: background-color 0.3s ease;
+}
+
+.btn-cerrar-sesion:hover {
+    background-color:#e60000;
+    transform: scale(1.05);
+    
+}
+
+
+.editar_perfil {
+    display: flex;               /* Activar Flexbox */
+    justify-content: center;     /* Centrar horizontalmente */
+    margin: 20px;           /* Espacio superior opcional */
+}
+
+.btn-editar-perfil {
+    text-decoration: none;       /* Quitar subrayado */
+    padding: 10px 20px;         /* Espaciado interno */
+    background-color: #007BFF;  /* Color de fondo del botón */
+    color: white;                /* Color del texto */
+    border-radius: 5px;         /* Bordes redondeados */
+    transition: background-color 0.3s; /* Efecto de transición */
+    border: none;
+    font-family: "Barlow Semi Condensed", sans-serif;
+    font-size: 1.2rem;
+    transition: background-color 0.8s ease;
+}
+
+.btn-editar-perfil:hover {
+    background-color: #0056b3;  /* Color de fondo al pasar el mouse */
+    transform: scale(1.05);
+}
+
+#editarPerfilSeccion {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 15px; /* Espaciado entre los elementos */
+    background-color: #f9f9f9; /* Fondo opcional */
+    padding: 20px; /* Espaciado interno opcional */
+    border-radius: 10px; /* Bordes redondeados */
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Sombra opcional */
+    max-width: 400px; /* Ancho máximo del formulario */
+    margin: 20px auto; /* Centra el formulario */
+}
+
+#editarPerfilForm label {
+    font-size: 1rem;
+    font-weight: 600;
+    margin-bottom: 5px;
+    color: #333;
+}
+
+#editarPerfilForm input,
+#editarPerfilForm select,
+#guardarPerfilBtn {
+    width: 100%; /* Ocupan todo el ancho del contenedor */
+    padding: 10px;
+    font-size: 1rem;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+#guardarPerfilBtn {
+    background-color: #007bff;
+    color: white;
+    cursor: pointer;
+    font-weight: 600;
+    text-align: center;
+    margin-top: 10px;
+    transition: background-color 0.3s ease;
+    border: none;
+}
+
+#guardarPerfilBtn:hover {
+    background-color: #0056b3;
+}
+
+.boton-pacientes-contenedor {
+    display: flex;
+    justify-content: center;
+    align-items: center; /* Asegura el centrado vertical */
+    margin-top: 100px;
+    width: 100%;
+}
+
+.boton-pacientes {
+    background-color: #6fb347; /* Un color verde agradable */
+    color: white;
+    font-family: "Barlow Semi Condensed", sans-serif;
+    font-size: 1.2rem;
+    padding: 0.8rem 2rem;
+    border: none;
+    text-align: center;
+    border-radius: 10px; /* Bordes redondeados */
+    cursor: pointer;
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.2); /* Sombra opcional para resaltarlo */
+    transition: background-color 0.3s ease, transform 0.2s ease; /* Efectos de transición */
+    margin-bottom: 40px;
+    text-decoration: none;
+}
+
+.boton-pacientes:hover {
+    background-color: #5d993d; /* Color más oscuro al pasar el ratón */
+    transform: scale(1.05); /* Aumenta ligeramente el tamaño */
+}
+
+.boton-pacientes a {
+    text-decoration: none; /* Sin subrayado */
+    color: inherit; /* Usa el color del botón */
+    display: block; /* Asegura que el enlace ocupe todo el botón */
+}
+
+@media (max-width: 768px) {
+    .perfil-usuario-portada {
+        height: 12rem;
+    }
+
+    .perfil-usuario-avatar {
+        width: 120px;
+        height: 120px;
+        bottom: -60px; 
+    }
+
+    .perfil-usuario-bio {
+        margin-top: 80px;
+    }
+
+    .perfil-usuario-footer {
+        width: 95%;
+        padding: 1rem;
+        margin-top: 3rem;
+    }
+
+    .lista-datos {
+        font-size: 1rem;
+        width: 100%;
+    }
+}
+
+@media (max-width: 480px){
+    .perfil-usuario-portada {
+        height: 10rem;
+    }
+
+    .perfil-usuario-avatar {
+        width: 100px;
+        height: 100px;
+        bottom: -50px; 
+    }
+
+    .perfil-usuario-bio {
+        margin-top: 70px;
+    }
+
+    .lista-datos {
+        font-size:0.9rem;
+}
+}
+

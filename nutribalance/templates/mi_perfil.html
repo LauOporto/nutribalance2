@@ -1,0 +1,174 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Perfil de Usuario | Nutribalance</title>
+    <link rel="stylesheet" href="{% static 'css/mi_perfil.css' %}">
+    <link rel="icon" href="{% static 'img/logopestaña.png' %}"> 
+    <link href="https://fonts.googleapis.com/css2?family=Barlow+Semi+Condensed:wght@300;400;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+</head>
+<body>
+
+    {% include "layouts/partials/nav.html" %}
+
+    <section class="seccion-perfil-usuario">
+        <header class="perfil-usuario-header">
+            <div class="perfil-usuario-portada"></div>
+    <div class="perfil-usuario-avatar">
+    <img id="fotoPerfil" 
+     src="{% if paciente.foto_perfil %}{{ paciente.foto_perfil.url }}{% else %}{% static 'img/foto_perfil_neutro.jpg' %}{% endif %}" 
+     class="imagen_avatar" alt="Avatar de Usuario">
+
+    <input id="inputFotoPerfil" type="file" accept="image/*" style="display: none;">
+    <a href="#" id="editarFotoBtn" class="editar-icono">
+        <i class="fas fa-edit"></i>
+    </a>
+</div>
+        </header>
+        
+        
+        <div class="perfil-usuario-bio">
+            <!-- Muestra el nombre y apellido del paciente -->
+            <h3 class="titulo">{{ paciente.nombre }} {{ paciente.apellido }}</h3>
+        </div>
+        {% if not paciente.es_profesional %}
+        <div class="perfil-usuario-footer">
+    <ul>
+        <li><strong>Email:</strong> {{ paciente.email }}</li>
+        <li><strong>Edad:</strong> <span id="edad-texto">{{ paciente.edad }}</span> años</li>
+        <li><strong>Peso:</strong> <span id="peso-texto">{{ paciente.peso }}</span> kg</li>
+        <li><strong>Altura:</strong> <span id="altura-texto">{{ paciente.altura }}</span> cm</li>
+        <li><strong>Sexo:</strong> <span id="sexo-texto">{{ paciente.sexo }}</span></li>
+    </ul>
+</div>
+
+<!-- Botón para editar los datos -->
+
+<div class="editar_perfil">
+    <button id="editarPerfilBtn" class="btn-editar-perfil">Editar Perfil</button>
+</div>
+
+<!-- Sección oculta para edición -->
+<div id="editarPerfilSeccion" style="display: none;">
+    <form id="editarPerfilForm">
+        {% csrf_token %}
+        <label for="edad">Edad:</label>
+        <input type="number" id="edad" name="edad" value="{{ paciente.edad }}">
+
+        <label for="peso">Peso (kg):</label>
+        <input type="number" id="peso" name="peso" value="{{ paciente.peso }}">
+
+        <label for="altura">Altura (cm):</label>
+        <input type="number" id="altura" name="altura" value="{{ paciente.altura }}">
+
+        <label for="sexo">Sexo:</label>
+        <select id="sexo" name="sexo">
+            <option value="masculino" {% if paciente.sexo == 'masculino' %}selected{% endif %}>Masculino</option>
+            <option value="femenino" {% if paciente.sexo == 'femenino' %}selected{% endif %}>Femenino</option>
+            <option value="otro" {% if paciente.sexo == 'otro' %}selected{% endif %}>Otro</option>
+        </select>
+
+        <button type="button" id="guardarPerfilBtn" class="btn-guardar">Guardar Cambios</button>
+    </form>
+</div>
+{% endif %}
+
+</div>
+    </section>
+    
+    <div class="cerrar-sesion-contenedor">
+        <form action="{% url 'logout' %}" method="POST">
+            {% csrf_token %}
+            <button type="submit" class="btn-cerrar-sesion">Cerrar Sesión</button>
+        </form>
+    </div>
+    
+<div class="boton-pacientes-contenedor">
+    {% if paciente.es_profesional %}
+    <a class="boton-pacientes" href="{% url 'lista_pacientes' %}">Lista de Pacientes</a>
+    {% endif %}
+</div>
+
+
+
+    <script>
+    document.getElementById('editarFotoBtn').addEventListener('click', function (e) {
+    e.preventDefault();
+    document.getElementById('inputFotoPerfil').click(); // Simula el clic en el input
+});
+
+document.getElementById('inputFotoPerfil').addEventListener('change', function () {
+    const formData = new FormData();
+    formData.append('foto_perfil', this.files[0]);
+
+    fetch(`/editar_foto_ajax/{{ paciente.id }}/`, { // Cambia el endpoint según corresponda
+        method: 'POST',
+        headers: {
+            'X-CSRFToken': '{{ csrf_token }}' // Añade el token CSRF
+        },
+        body: formData
+    })
+    .then(response => {
+        if (response.ok) {
+            return response.json();
+        } else {
+            throw new Error('Error al subir la imagen');
+        }
+    })
+    .then(data => {
+        // Actualiza dinámicamente la imagen de perfil
+        document.getElementById('fotoPerfil').src = data.nueva_foto_url;
+        alert('¡Foto de perfil actualizada con éxito!');
+    })
+    .catch(error => {
+        console.error('Error:', error);
+        alert('Hubo un problema al actualizar la foto.');
+    });
+});
+
+    document.getElementById('editarPerfilBtn').addEventListener('click', function () {
+    // Mostrar la sección de edición
+    document.getElementById('editarPerfilSeccion').style.display = 'block';
+});
+
+document.getElementById('guardarPerfilBtn').addEventListener('click', function () {
+    const formData = new FormData(document.getElementById('editarPerfilForm'));
+
+    fetch(`/editar_perfil_ajax/{{ paciente.id }}/`, {
+        method: 'POST',
+        headers: {
+            'X-CSRFToken': '{{ csrf_token }}' // Asegura el token CSRF
+        },
+        body: formData
+    })
+    .then(response => {
+        if (response.ok) {
+            return response.json();
+        } else {
+            throw new Error('Error al guardar los datos.');
+        }
+    })
+    .then(data => {
+        // Actualiza dinámicamente los datos mostrados
+        document.getElementById('edad-texto').textContent = data.edad;
+        document.getElementById('peso-texto').textContent = data.peso;
+        document.getElementById('altura-texto').textContent = data.altura;
+        document.getElementById('sexo-texto').textContent = data.sexo;
+
+        alert('¡Datos actualizados con éxito!');
+        // Ocultar la sección de edición
+        document.getElementById('editarPerfilSeccion').style.display = 'none';
+    })
+    .catch(error => {
+        console.error('Error:', error);
+        alert('Hubo un problema al guardar los datos.');
+    });
+});
+
+    </script>
+
+</body>
+</html>

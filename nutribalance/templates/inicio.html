@@ -1,0 +1,88 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{% static 'css/inicio.css'%}">
+    <link rel="icon" href="/static/img/logopestaña.png">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Barlow+Semi+Condensed:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
+
+
+    <title>Nutribalance</title>
+</head>
+<body>
+
+    <div class="seccion1">
+
+        <div class="contenedor_titulo">
+            <img class="imglogo" src="/static/img\logonutri.jpeg" alt="logo">
+        </div>
+
+        <div class="contenedor_image1">
+            <img class="saladimg1" src="\static\img\salad1.png">
+            <img class="saladimg2" src="/static/img/frutossecos2.png">
+        </div>
+
+        <div class="contenedor_text1">
+            <p class="text1">Empezá tu camino hacía un peso saludable con aplicaciones intuitivas, herramientas digitales y apoyo continuo.
+            </p>
+            </div>
+
+        <div class="boton_register">
+            <button class="boton">
+                <a class="register_boton" href="{% url 'register' %}">COMENZAR YA </a>
+            </button>
+        </div>
+
+    </div>
+
+    <div class="seccion2">
+        <div class="imgprofesional_container">
+            <img class="imgprofesional" src="/static/img/profesional2.jpg">
+        </div>
+        <div class="contenedor_text2">
+            <p class="text2">
+            Realiza tus consultas con  
+            profesionales
+            </p>
+        </div>
+
+    </div>
+
+
+    <div class="seccion3">
+        <div class="contenedor_text3">
+            <p class="text3">
+                Lleva registros de tus comidas y bebidas
+            </p>
+        </div>
+
+        <div class="contenedor_agua">
+            <img class="imgagua2" src="/static/img/aguaimg.jpg">
+        </div>
+    
+    </div>
+    
+    <div class="seccion4">
+        <div class="imgeat_container">
+            <img class="imgeat" src="\static\img\imgeat.jpeg">
+        </div>
+        <div class="contenedor_text4">
+            <p class="text4">
+                Haz de tu alimentación un acto de amor propio.
+            </p>
+        </div>
+
+    </div>
+    
+    <div class="boton_register2">
+        <button class="boton2">
+            <a class="register_boton2" href="{% url 'register' %}">COMENZAR YA </a>
+        </button>
+    </div>
+
+</body>
+</html>

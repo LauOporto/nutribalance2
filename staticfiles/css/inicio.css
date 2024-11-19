@@ -1,0 +1,298 @@
+@font-face {
+    font-family: 'Fuente1';
+    src: url(..fonts/fuente1.ttf);
+}
+
+@font-face {
+    font-family: 'Fuente2';
+    src: url(..fonts/fuente2.ttf);
+}
+
+p {
+    font-family: "Barlow Semi Condensed", sans-serif;
+    font-weight: 700;
+
+}
+
+.seccion1 {
+    height: 100%;
+    background: linear-gradient(to top, #ffffff, #c4dd71 20%);
+   
+}
+
+body {
+    background-color: #c4dd71;
+    margin: 0;
+    padding: 0;
+
+}
+
+.contenedor_titulo {
+    margin-top: 100px;
+    margin-left: 70px;
+    display: inline-block;
+    
+}
+
+.imglogo {
+    width: 50%;
+    height: auto;
+    
+}
+
+.contenedor_image1 {
+    display: flex;
+    position: absolute;
+    top: 1%;
+    right: 0%;
+    max-width: 45%;
+    max-height: auto;
+}
+
+.saladimg1 {
+    filter: drop-shadow(10px 10px 20px rgba(0, 0, 0, 0.5));
+    margin-top: 2%;
+    width: 80%;
+    
+}
+
+.saladimg2 {
+    filter: drop-shadow(10px 10px 20px rgba(0, 0, 0, 0.5));
+    width: 32%;
+    height: auto;
+    position: absolute;
+    right: 40px;
+    top: 1%;
+    
+}
+
+.contenedor_text1 {
+    display: inline-block;
+    margin-left: 100px;
+    width: 50%;
+
+}
+
+.text1 {
+    color:#455913;
+    font-size: 300%;
+    font-family: "Barlow Semi Condensed", sans-serif;
+    font-weight: 700;
+}
+
+.boton_register {
+    margin-left: 10%;
+}
+.boton {
+    padding: 20px;
+    border-radius: 100px;
+    border: white 5px solid;
+    color:#ffffff;
+    font-size: 30px;
+    font-family: "Barlow Semi Condensed", sans-serif;
+    font-weight: 700;
+    font-style: bold;
+    background-color: #455913;
+    text-decoration: none;
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+    
+
+
+.register_boton {
+    text-decoration: none;
+    color: inherit;
+
+}
+
+.boton:hover {
+    border:#6f9b00 5px solid ;
+    color:#6f9b00;
+    background-color: #ffffff;
+
+}
+.register_boton:visited {
+    color:inherit;
+}
+
+.seccion2 {
+    background: #ffffff;
+    width:100%;
+}
+
+.contenedor_text2{
+    width:30%;
+    display:inline-block;
+    align-items: center;
+    margin-left: 8%
+}
+
+
+.imgprofesional_container {
+    width: 45%;
+    height:70%;
+    display:inline-block;
+    margin-left:3%;
+    margin-top: 5%
+}
+
+
+.imgprofesional {
+    width:100%;
+    height: auto;
+    border-radius: 100px;
+    
+}
+
+.text2 {
+    font-size: 550%;
+    font-family: 'fuente-1', sans-serif;
+    text-align: center;
+    color: #455913
+} 
+
+.seccion3 {
+
+    
+    background-image: url('/static/img/aguaimggreen.png'); /* Ruta de tu imagen */
+    background-size: cover; /* Hace que la imagen cubra todo el fondo */
+    background-position: center; /* Centra la imagen */
+    background-repeat: no-repeat; /* Evita que la imagen se repita */
+    margin: 0;
+    padding: 0;
+
+
+
+     /* Asegura que los elementos estén distribuidos */
+     /* Centra verticalmente los elementos */
+    display: flex;
+     /* Altura ajustada según lo que necesites */
+    background-color: #455913; /* Color de fondo opcional */
+}
+
+.contenedor_text3 {
+    width: 100%; /* El texto ocupará el 50% del ancho */
+ /* Espacio alrededor del texto */
+    display: flex;
+}
+
+.text3 {
+    padding: 20px;
+    font-size:500%; /* Ajusta el tamaño de la fuente */
+    color: #455913; /* Color de texto */
+    font-family: "Barlow Semi Condensed", sans-serif;
+    font-weight: 700;
+    text-align: center;
+}
+
+.contenedor_agua {
+    width: 100%; /* La imagen ocupará el 50% del ancho */
+    display: inline-block;
+     /* Para centrar la imagen dentro de su contenedor */
+     margin: 1%
+}
+
+.imgagua2 {
+    width: 100%; /* La imagen ocupará el 50% del ancho */
+     /* Para centrar la imagen dentro de su contenedor */
+    max-width: 100%; /* Asegura que la imagen no se desborde */
+    display: inline-block;
+    border-radius: 100px;
+    
+  
+}
+
+.lineablanca {
+    background: #f7ffdb;
+    height: 20px;
+    width: 100%;
+}
+
+.lineaverde {
+    background: #455913;
+    height: 20px;
+    width: 100%;
+}
+
+.seccion4 {
+    width:100%;
+    background: linear-gradient(to bottom, #ffffff00, #ffffff), url('/static/img/imgverduraswhite.png');;
+    background-blend-mode: overlay; /* Ruta de tu imagen */
+    background-size: cover; /* Hace que la imagen cubra todo el fondo */
+    background-position: center; /* Centra la imagen */
+    background-repeat: no-repeat; /* Evita que la imagen se repita */
+    margin: 0;
+    padding: 0;
+    
+}
+
+.contenedor_text4{
+    width:40%;
+    display:inline-block;
+    align-items: center;
+    margin-left: 5%;
+}
+
+
+.imgeat_container {
+    width: 45%;
+    height:70%;
+    display:inline-block;
+    margin-left:3%;
+    margin-top: 2%;
+}
+
+
+.imgeat {
+    width:100%;
+    height: auto;
+    border-radius: 100px;
+    
+}
+
+.text4 {
+    font-size: 500%;
+    font-family: "Barlow Semi Condensed", sans-serif;
+    font-weight: 700;
+    text-align: center;
+    color: #455913;
+} 
+
+.boton_register2 {
+    display:flex;
+    justify-content: center;
+    background-color: white;
+    padding: 2%;
+
+}
+.boton2 {
+    padding: 20px;
+    border-radius: 100px;
+    border: white 5px solid;
+    color:#ffffff;
+    font-size: 30px;
+    font-family: "Barlow Semi Condensed", sans-serif;
+    font-weight: 700;
+    font-weight: 500px;
+    font-style: bold;
+    background-color: #455913;
+    text-decoration: none;
+    transition: background-color 0.3s ease, color 0.3s ease;
+
+}
+    
+.register_boton2 {
+    text-decoration: none;
+
+}
+
+.boton2:hover {
+    border:#6f9b00 5px solid ;
+    color:#6f9b00;
+    background-color: #ffffff;
+
+}
+.register_boton2:visited {
+    color:inherit;
+}
+

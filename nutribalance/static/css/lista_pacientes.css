@@ -1,0 +1,108 @@
+/* General styling */
+body {
+    margin: 0;
+    font-family: 'Barlow Semi Condensed', sans-serif;
+    background-color: #f4f4f4;
+}
+
+.background {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -1;
+    overflow: hidden;
+}
+
+.background-image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    opacity: 0.4;
+}
+
+.container {
+    background: rgba(255, 255, 255, 0.8);
+    backdrop-filter: blur(10px);
+    padding: 30px;
+    border-radius: 10px;
+    max-width: 800px;
+    margin: 50px auto;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    text-align: center;
+}
+
+h1 {
+    font-size: 2rem;
+    color: #4A4A4A;
+    margin-bottom: 20px;
+}
+
+/* Table styling */
+.patient-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.patient-table th,
+.patient-table td {
+    padding: 10px;
+    text-align: center;
+    border: 1px solid #ddd;
+}
+
+.patient-table th {
+    background-color: #91ac47;
+    color: white;
+    font-weight: 600;
+}
+
+.patient-table tr:nth-child(even) {
+    background-color: #f9f9f9;
+}
+
+.patient-table tr:hover {
+    background-color: #f1f1f1;
+}
+
+/* Button styling */
+.action-button {
+    padding: 10px 20px;
+    background-color: #91ac47;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 14px;
+    transition: background-color 0.3s ease;
+}
+
+.action-button:hover {
+    background-color: #729b33;
+}
+
+.btn-volver-container {
+    display: flex;
+    margin: 20px;
+
+
+    
+    
+}
+
+.btn-volver {
+    background-color: #ffffff;
+    color: #71a32f;
+    font-family: "Barlow Semi Condensed", sans-serif;
+    font-size: 1.2rem;
+    padding: 0.8rem 2rem;
+    border: solid 2px #71a32f;
+    border-radius: 8px;
+    cursor: pointer;
+    margin-top: auto; /* Se coloca en el final del contenedor */
+    transition: background-color 0.3s ease;
+
+}
